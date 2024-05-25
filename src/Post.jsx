@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import Comment from './Comment';
-function Post(props){
+
+function Post({ title, content }) {
   const [likes, setLikes] = useState(0);
-  function handleLike(){
+
+  const handleLike = () => {
     setLikes(likes + 1);
-  }
-  return(
+  };
+
+  return (
     <div>
-      <h3>{props.content}</h3>
+      <h3>{title}</h3>
+      <p>{content}</p>
       <p>Likes: {likes}</p>
       <button onClick={handleLike}>Like</button>
       <p>Comments:</p>
@@ -15,6 +19,7 @@ function Post(props){
       <Comment content="This is another test comment!" />
       <Comment content="This is yet another test comment!" />
     </div>
-  )
+  );
 }
-export default Post
+
+export default Post;
